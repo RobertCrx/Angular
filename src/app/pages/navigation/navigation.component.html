@@ -1,0 +1,35 @@
+  <!-- ### Sidenav UIX ### -->
+  <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
+    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+
+      <div (click)="close('toggle button')" class="logo-main">
+             <span class="company-title" >Angular Training Zone</span>
+      </div>
+
+
+      <div class="elements">
+
+      </div>
+
+    </mat-sidenav>
+
+      <!-- ### Primary Toolbar UIX ### -->
+    <mat-sidenav-content (scroll)="onScrollEvent($event)">
+    <mat-toolbar color="primary" class="isDesktop">
+      <button (click)="sidenav.open()" color="primary" mat-raised-button class="example-icon main-button" aria-label="Example icon-button with menu icon">
+       <mat-icon>menu</mat-icon>
+     </button>
+     <span class="company-title">Angular Training Zone</span>
+     <span class="example-spacer"></span>
+
+   </mat-toolbar>
+
+   <app-home></app-home>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+
+
+

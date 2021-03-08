@@ -1,0 +1,43 @@
+.mat-drawer-container {
+  background: #f1f1f1d9;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+
+mat-sidenav {
+  background-color: lightcoral;
+}
+
+
+.company-title {
+  font-size: 20px;
+  border-bottom: 3px solid;
+  border-radius: 2px;
+}
+
+.main-button {
+  margin-right: 1rem;
+}
+
+.mat-toolbar {
+  box-shadow: 0px 0px 8px #3b3b3b85;
+}
+
+.logo-main {
+  padding: 2rem;
+  border-bottom: 1px groove #8080802e;
+}
+
+.elements {
+  margin-top: 1rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}

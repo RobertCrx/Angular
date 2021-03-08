@@ -1,0 +1,12 @@
+
+<div class="Wrapper">
+
+
+<button (click)="changeColor()" mat-raised-button color="primary">Change Color</button>
+
+<div class="advanced-color" [ngStyle]="{'background': color}">
+  {{color}}
+</div>
+</div>
+
+<app-covid></app-covid>

@@ -1,0 +1,173 @@
+#homepage {
+  margin-top: 1rem;
+}
+
+.middle {
+  justify-content: center;
+}
+
+.title {
+  padding-top: 15px;
+}
+
+.directives {
+  width: fit-content;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 1rem;
+}
+
+.basic-title {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.basic-subtitle {
+  font-weight: 500;
+  color: dimgray;
+  font-size: 13px;
+}
+
+.user-add {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.mat-tab-body-content {
+  overflow: hidden;
+}
+
+.row-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.end {
+  margin-right: 10px;
+  font-weight: 500;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: dimgray;
+  font-size: 13px;
+}
+
+.change {
+  margin-top: 1rem;
+  display: block;
+}
+
+.block {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+mat-grid-list {
+  height: 200px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+mat-grid-tile {
+  overflow: visible;
+}
+
+mat-card:not(.directives) {
+  display: grid;
+  place-content: stretch;
+  margin-bottom: 10px;
+  padding: 2rem;
+  transition: none;
+
+  &:hover {
+    box-shadow: 0 0px 8px 1px rgba(0, 0, 0, 0.2), 0 0px 8px 0 rgba(0, 0, 0, -0.86), 0 8px 8px 0 rgba(0, 0, 0, 0.12) !important;
+    transform: translate3d(0, -3px, 0);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 0.12);
+  }
+}
+
+mat-spinner {
+  margin: 1rem auto;
+}
+
+mat-expansion-panel {
+  margin-top: 1rem;
+}
+
+.animate__animated {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-duration: var(--animate-duration);
+  animation-duration: var(--animate-duration);
+  -webkit-animation-fill-mode: backwards !important;
+  animation-fill-mode: backwards !important;
+}
+
+.animate__animated.animate__slow {
+  -webkit-animation-duration: calc(3s * 2);
+  animation-duration: calc(3s * 2);
+  -webkit-animation-duration: calc(var(--animate-duration) * 2);
+  animation-duration: calc(var(--animate-duration) * 2);
+}
+
+/* Fading entrances  */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fading entrances  */
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.animate__fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+.animate__fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}

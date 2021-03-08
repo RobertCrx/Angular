@@ -1,0 +1,199 @@
+<section id="homepage" >
+  <!-- ===[ BODY CONTENT ]=== -->
+
+
+
+    <mat-tab-group [appScroll]>
+
+      <mat-tab label="Angular Training - Novice">
+        <ng-template matTabContent >
+        <div>
+          <div class="employee-area">
+            <div class="title">
+              <h2 class="basic-title">Angular - Input/Output sharing data</h2>
+            </div>
+          </div>
+
+          <app-custom *ngIf="Loading != null else notLoadedTab1" [item$]="valueToChild"></app-custom>
+
+          <div class="employee-area">
+            <div class="title">
+              <h2 class="basic-title">Angular - Attribute DIRECTIVES</h2>
+            </div>
+          </div>
+
+        <div class="directive-zone">
+          <mat-card class="directives" [appCustom]>
+             <p class="directive"  [appTextChange]>THIS IS A TEXT WITH ATTRIBUTE DIRECTIVE! </p>
+          </mat-card>
+
+        </div>
+
+
+
+          <ng-template #notLoadedTab1>
+            <ngx-skeleton-loader [theme]="{
+              'width': '400px',
+              'background': '#bcbcbc8f',
+              'height': '50px',
+              'margin': '0 10px 0 10px'
+            }" count="1">
+              </ngx-skeleton-loader>
+          </ng-template>
+
+          <div class="employee-area">
+            <div class="title">
+              <h2 class="basic-title">Angular - RxJS Observables with async Pipe</h2>
+            </div>
+          </div>
+
+        <div class="middle" fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="10px" *ngIf="Loading != null; else load">
+          <mat-card *ngFor="let i = index,let user of homepageUsers$ | async" fxFlex.sm="0 1 calc(50%-10px)" fxFlex.get-xs="0 1 50%" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(33%-10px)" class="animate__animated animate__slow animate__fadeIn">
+
+              <span *ngIf="i === 0; else none" matBadge="1"></span>
+
+              <ng-template #none>
+                <span matBadge="0"></span>
+
+              </ng-template>
+
+            <mat-card-title>{{user.name }}</mat-card-title>
+
+            <mat-card-content>{{user.description}}</mat-card-content>
+            <div class="details">
+                 {{user.sum}}
+            </div>
+
+          </mat-card>
+
+          <p class="end">Async observables are auto-cleanable, no need to unsubscribe and if using onPush() method , angular can tell when the data has changed and when upload it automatically , same as a live server.
+            Below are users in a simple list , not observables. The advantage depends of the particular type of data you need to use.
+          </p>
+
+          <mat-card *ngFor="let i = index,let user of  ceva" fxFlex.sm="0 1 calc(50%-10px)" fxFlex.get-xs="0 1 50%" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(33%-10px)" class="animate__animated animate__slow animate__fadeIn">
+
+            <span *ngIf="i === 0; else none" matBadge="1"></span>
+
+            <ng-template #none>
+              <span matBadge="0"></span>
+
+            </ng-template>
+
+          <mat-card-title>{{user.name }}</mat-card-title>
+
+          <mat-card-content>{{user.description}}</mat-card-content>
+          <div class="details">
+               {{user.sum}}
+          </div>
+
+        </mat-card>
+
+
+        </div>
+
+
+
+        <div class="row-form">
+          <mat-label class="user-add">Add a new user dynamically</mat-label>
+
+          <form [formGroup]="userAdd" (submit)="submit()" class="form">
+            <mat-form-field hintLabel="Max 10 characters" appearance="outline">
+              <mat-label>User name</mat-label>
+              <input formControlName="name" required #input maxlength="10" matInput placeholder="Enter name of person">
+              <mat-error *ngIf="userAdd.controls.name.touched && userAdd.controls.name.invalid">
+                <span *ngIf="userAdd.controls.name.errors.required">This field is mandatory.</span>
+              </mat-error>
+              <mat-icon color="primary" matSuffix>person_add_outlined</mat-icon>
+              <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field hintLabel="Max 80 characters" appearance="outline">
+              <mat-label>User description</mat-label>
+              <input formControlName="description" #input2 maxlength="80" matInput placeholder="Representative description">
+              <mat-error *ngIf="userAdd.controls.description.touched && userAdd.controls.description.invalid">
+                <span *ngIf="userAdd.controls.description.errors.required">This field is mandatory.</span>
+              </mat-error>
+              <mat-icon color="primary" matSuffix> insert_chart_outlined</mat-icon>
+              <mat-hint align="end">{{input2.value?.length || 0}}/80</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>User estimated wage/salary per year</mat-label>
+              <input formControlName="sum" matInput type="number" class="example-right-align">
+              <mat-icon color="primary" matSuffix> attach_money</mat-icon>
+
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Create user</button>
+         </form>
+        </div>
+
+
+        <ng-template #load>
+          <mat-spinner diameter="35"></mat-spinner>
+          <div class="middle" fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="10px">
+            <ngx-skeleton-loader [theme]="{
+            'width': '300px',
+            'background': '#bcbcbc8f',
+            'height': '150px',
+            'margin': '0 10px 0 10px'
+          }" count="3">
+            </ngx-skeleton-loader>
+          </div>
+
+
+
+
+        </ng-template>
+      </div>
+        </ng-template>
+
+      </mat-tab>
+
+      <mat-tab label="Angular Training - Advanced">
+        <ng-template matTabContent>
+              <div class="block">
+                <div class="employee-area">
+                  <div class="title">
+                    <h2 class="basic-title">Angular - Change Detection onPush changes value automatically</h2>
+
+                    <h4 class="basic-subtitle">While using some triggers like Input() and Output or EventEmitter , angular can tell by
+                       executing async functions when to update its data. In the below example, component [app-advanced] its called inside [app-home] and has its Input() set in order to be manipulated inside the parent component.
+                    </h4>
+                  </div>
+                </div>
+                <div class="auto">
+
+                  <button *ngIf="isAuto" mat-raised-button color="accent" class="change" (click)="change()">{{disabled}}</button>
+
+                  <button *ngIf="!isAuto" mat-raised-button color="primary" class="change" (click)="change()">{{enabled}}</button>
+                </div>
+
+               <app-advanced [color]="color" [isAuto]="isAuto"></app-advanced>
+
+
+              </div>
+        </ng-template>
+
+      </mat-tab>
+      <mat-tab label="Angular Training - Expert">
+        <ng-template matTabContent>
+
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
